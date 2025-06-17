@@ -68,3 +68,59 @@
     gap: 6px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
+
+.btn-edit {
+    color: #17a2b8;
+    background-color: #d1ecf1;
+    border: 1px solid #bee5eb;
+}
+
+.btn-edit:hover {
+    background-color: #bee5eb;
+    box-shadow: 0 4px 12px rgba(23, 162, 184, 0.4);
+    color: #0c5460;
+}
+
+.btn-delete {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+
+.btn-delete:hover {
+    background-color: #f5c6cb;
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
+    color: #721c24;
+}
+
+.btn-action:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* Estilos para los modales */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1050;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-dialog {
+    max-width: 500px;
+    width: 90%;
+    animation: modalFadeIn 0.3s;
+}
+
+.modal-content {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
