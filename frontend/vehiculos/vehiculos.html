@@ -51,3 +51,100 @@
                 </ul>
             </nav>
         </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="main-content__header">
+                <h2 class="main-content__title">Gestión de Vehículos</h2>
+                <div class="main-content__breadcrumb">
+                    <span><i class='bx bx-home'></i> Inicio</span>
+                    <span>/</span>
+                    <span class="active">Vehículos</span>
+                </div>
+            </div>
+
+            <div class="content-actions">
+                <button class="btn btn-primary" id="btnNuevo">
+                    <i class='bx bx-plus'></i> Nuevo Vehículo
+                </button>
+            </div>
+
+            <div class="data-table-container">
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Placa</th>
+                                <th>Modelo</th>
+                                <th>Capacidad</th>
+                                <th class="text-center">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaVehiculosBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Agregar/Editar -->
+    <div class="modal" id="modalVehiculo">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Nuevo Vehículo</h5>
+                    <button type="button" class="btn-close" id="btnCerrarModal">
+                        <i class='bx bx-x'></i>
+                    </button>
+                </div>
+                <form id="formVehiculo">
+                    <div class="modal-body">
+                        <input type="hidden" id="vehiculoId" />
+                        <div class="form-group">
+                            <label for="placa" class="form-label">Placa</label>
+                            <input type="text" id="placa" class="form-control" maxlength="20" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="modelo" class="form-label">Modelo</label>
+                            <input type="text" id="modelo" class="form-control" maxlength="50" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="capacidad" class="form-label">Capacidad (pasajeros)</label>
+                            <input type="number" id="capacidad" class="form-control" min="1" required />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="btnCancelar">Cancelar</button>
+                        <button type="submit" class="btn btn-primary" id="btnGuardar">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Confirmación Eliminar -->
+    <div class="modal" id="modalEliminar">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmar Eliminación</h5>
+                    <button type="button" class="btn-close" id="btnCerrarEliminar">
+                        <i class='bx bx-x'></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Estás seguro de eliminar este vehículo? Esta acción no se puede deshacer.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="btnCancelarEliminar">Cancelar</button>
+                    <button type="button" class="btn btn-danger" id="btnConfirmarEliminar">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="vehiculos.js"></script>
+    <script src="../dashboard/dashboard.js"></script>
+</body>
+</html>
