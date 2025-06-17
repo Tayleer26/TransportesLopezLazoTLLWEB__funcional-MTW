@@ -1,0 +1,351 @@
+/* Estilos generales */
+:root {
+  --primary: #0056b3;
+  --primary-light: #e6f0ff;
+  --secondary: #ffcc00;
+  --white: #ffffff;
+  --gray-light: #f5f7fa;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --danger: #dc3545;
+  --success: #28a745;
+  --border-radius: 8px;
+  --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--gray-dark);
+  line-height: 1.6;
+  overflow: hidden;
+}
+
+/* Estructura del login */
+.login-wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+.login-bg {
+  flex: 1;
+  background: url('../img/alta.png') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+}
+
+.login-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: 2;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 450px;
+  background: var(--white);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 3;
+  overflow-y: auto;
+}
+
+/* Header del login */
+.login-header {
+  text-align: center;
+  margin-bottom: 40px;
+  animation: fadeInDown 0.8s ease forwards;
+}
+
+.login-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 15px;
+  border-radius: 50%;
+  border: 3px solid var(--primary-light);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.login-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 5px;
+}
+
+.login-subtitle {
+  font-size: 1rem;
+  color: var(--gray);
+  font-weight: 400;
+}
+
+/* Formulario */
+.login-form {
+  animation: fadeIn 0.8s ease forwards 0.2s;
+  opacity: 0;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--gray-dark);
+  font-size: 0.95rem;
+}
+
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 15px;
+  font-size: 1.2rem;
+  color: var(--gray);
+  z-index: 2;
+}
+
+.login-input {
+  width: 100%;
+  padding: 14px 15px 14px 45px;
+  border: 2px solid var(--gray-light);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: var(--transition);
+  background-color: var(--gray-light);
+  font-family: 'Poppins', sans-serif;
+}
+
+.login-input:focus {
+  border-color: var(--primary);
+  background-color: var(--white);
+  box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+  outline: none;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 15px;
+  background: none;
+  border: none;
+  color: var(--gray);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 2;
+}
+
+.toggle-password:hover {
+  color: var(--primary);
+}
+
+/* Opciones del formulario */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--gray);
+  cursor: pointer;
+  user-select: none;
+}
+
+.remember-me input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-color: var(--gray-light);
+  border-radius: 4px;
+  margin-right: 8px;
+  position: relative;
+  transition: var(--transition);
+}
+
+.remember-me input:checked ~ .checkmark {
+  background-color: var(--primary);
+}
+
+.checkmark::after {
+  content: '';
+  position: absolute;
+  display: none;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.remember-me input:checked ~ .checkmark::after {
+  display: block;
+}
+
+.forgot-password {
+  font-size: 0.9rem;
+  color: var(--gray);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.forgot-password:hover {
+  color: var(--primary);
+}
+
+/* Botón de login */
+.login-button {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(to right, var(--primary), #0069d9);
+  border: none;
+  border-radius: var(--border-radius);
+  color: var(--white);
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 5px 15px rgba(0, 86, 179, 0.3);
+  margin-bottom: 20px;
+}
+
+.login-button:hover {
+  background: linear-gradient(to right, #004a99, #0056b3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 86, 179, 0.4);
+}
+
+.login-button:active {
+  transform: translateY(0);
+}
+
+.login-button i {
+  font-size: 1.3rem;
+}
+
+/* Mensaje de error */
+.error-message {
+  color: var(--danger);
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 15px;
+  min-height: 1.2rem;
+  animation: shake 0.5s ease;
+}
+
+/* Footer del login */
+.login-footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--gray);
+  animation: fadeIn 0.8s ease forwards 0.4s;
+  opacity: 0;
+}
+
+.login-footer p:first-child {
+  margin-bottom: 5px;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .login-wrapper {
+    flex-direction: column;
+  }
+  
+  .login-bg {
+    display: none;
+  }
+  
+  .login-container {
+    max-width: 100%;
+    height: 100vh;
+    padding: 30px;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 20px;
+  }
+  
+  .login-title {
+    font-size: 1.5rem;
+  }
+  
+  .login-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .login-input {
+    padding: 12px 15px 12px 40px;
+  }
+  
+  .login-button {
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
