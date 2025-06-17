@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Vehículos - Transportes López Lazo</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../dashboard/dashboard.css">
+    <link rel="stylesheet" href="vehiculos.css"/>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <button id="menuToggle" class="header__menu-toggle" aria-label="Abrir menú">
+                <i class='bx bx-menu'></i>
+            </button>
+            <div class="header__logo-container">
+                <h1 class="header__logo">Transportes López Lazo</h1>
+                <span class="header__subtitle">Gestión de Vehículos</span>
+            </div>
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="#" class="header__nav-link"><i class='bx bx-home'></i></a></li>
+                    <li class="header__nav-item"><a href="#" class="header__nav-link"><i class='bx bx-user'></i></a></li>
+                    <li class="header__nav-item"><a href="#" class="header__nav-link"><i class='bx bx-log-out'></i></a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Sidebar -->
+        <aside id="sidebar" class="sidebar">
+            <div class="sidebar__profile">
+                <img src="../img/empresario.png" alt="Foto de perfil" class="sidebar__profile-img">
+                <div class="sidebar__profile-info">
+                    <h3 class="sidebar__profile-name">Usuario Admin</h3>
+                    <span class="sidebar__profile-role">Administrador</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar__nav">
+                <ul class="sidebar__list">
+                    <li class="sidebar__item"><a href="../dashboard/index.html" class="sidebar__link"><i class='bx bx-grid-alt sidebar__icon'></i> Dashboard</a></li>
+                    <li class="sidebar__item"><a href="../estudiantes/estudiantes.html" class="sidebar__link"><i class='bx bx-user sidebar__icon'></i> Estudiantes</a></li>
+                    <li class="sidebar__item"><a href="../tutores/tutores.html" class="sidebar__link"><i class='bx bx-user-voice sidebar__icon'></i> Tutores</a></li>
+                    <li class="sidebar__item"><a href="../pagos/pagos.html" class="sidebar__link"><i class='bx bx-wallet sidebar__icon'></i> Pagos</a></li>
+                    <li class="sidebar__item"><a href="../trabajadores/trabajadores.html" class="sidebar__link"><i class='bx bx-briefcase sidebar__icon'></i> Trabajadores</a></li>
+                    <li class="sidebar__item"><a href="#" class="sidebar__link sidebar__link--active"><i class='bx bxs-truck sidebar__icon'></i> Vehículos</a></li>
+                    <li class="sidebar__item"><a href="../rutas/rutas.html" class="sidebar__link"><i class='bx bx-map sidebar__icon'></i> Rutas</a></li>
+                </ul>
+            </nav>
+        </aside>
