@@ -19,3 +19,52 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     overflow: hidden;
 }
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th {
+    background-color: #0056b3;
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 500;
+}
+
+.data-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e9ecef;
+    vertical-align: middle;
+}
+
+.data-table tr:hover td {
+    background-color: #f1f5ff;
+}
+
+.data-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Botones de acción */
+.btn-action {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    margin: 0 5px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
