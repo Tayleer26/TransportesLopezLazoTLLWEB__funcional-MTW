@@ -1,0 +1,21 @@
+/* tutores.css - Estilos específicos para la gestión de tutores */
+
+/* Contenedor principal */
+.main-content {
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.content-actions {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Estilos para la tabla */
+.data-table-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
