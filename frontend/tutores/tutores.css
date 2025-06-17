@@ -19,3 +19,108 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     overflow: hidden;
 }
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th {
+    background-color: #0056b3;
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 500;
+}
+
+.data-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e9ecef;
+    vertical-align: middle;
+}
+
+.data-table tr:hover td {
+    background-color: #f1f5ff;
+}
+
+.data-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Botones de acción */
+.btn-action {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    margin: 0 5px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.btn-edit {
+    color: #17a2b8;
+    background-color: #d1ecf1;
+    border: 1px solid #bee5eb;
+}
+
+.btn-edit:hover {
+    background-color: #bee5eb;
+    box-shadow: 0 4px 12px rgba(23, 162, 184, 0.4);
+    color: #0c5460;
+}
+
+.btn-delete {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+
+.btn-delete:hover {
+    background-color: #f5c6cb;
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
+    color: #721c24;
+}
+
+.btn-action:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* Estilos para los modales */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1050;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-dialog {
+    max-width: 500px;
+    width: 90%;
+    animation: modalFadeIn 0.3s;
+}
+
+.modal-content {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
