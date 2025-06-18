@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Estudiantes - Transportes López Lazo</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../dashboard/dashboard.css">
+    <link rel="stylesheet" href="estudiantes.css"/>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <button id="menuToggle" class="header__menu-toggle" aria-label="Abrir menú">
+                <i class='bx bx-menu'></i>
+            </button>
+            <div class="header__logo-container">
+                <h1 class="header__logo">Transportes López Lazo</h1>
+                <span class="header__subtitle">Gestión de Estudiantes</span>
+            </div>
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="#" class="header__nav-link"><i class='bx bx-home'></i></a></li>
+                    <li class="header__nav-item"><a href="#" class="header__nav-link"><i class='bx bx-user'></i></a></li>
+                    <li class="header__nav-item"><a href="#" class="header__nav-link"><i class='bx bx-log-out'></i></a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Sidebar -->
+        <aside id="sidebar" class="sidebar">
+            <div class="sidebar__profile">
+                <img src="../img/empresario.png" alt="Foto de perfil" class="sidebar__profile-img">
+                <div class="sidebar__profile-info">
+                    <h3 class="sidebar__profile-name">Tayleer</h3>
+                    <span class="sidebar__profile-role">Administrador</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar__nav">
+                <ul class="sidebar__list">
+                    <li class="sidebar__item"><a href="../dashboard/index.html" class="sidebar__link"><i class='bx bx-grid-alt sidebar__icon'></i> Dashboard</a></li>
+                    <li class="sidebar__item"><a href="../estudiantes/estudiantes.html" class="sidebar__link sidebar__link--active"><i class='bx bx-user sidebar__icon'></i> Estudiantes</a></li>
+                    <li class="sidebar__item"><a href="../tutores/tutores.html" class="sidebar__link"><i class='bx bx-user-voice sidebar__icon'></i> Tutores</a></li>
+                    <li class="sidebar__item"><a href="../pagos/pagos.html" class="sidebar__link"><i class='bx bx-wallet sidebar__icon'></i> Pagos</a></li>
+                    <li class="sidebar__item"><a href="../trabajadores/trabajadores.html" class="sidebar__link"><i class='bx bx-briefcase sidebar__icon'></i> Trabajadores</a></li>
+                    <li class="sidebar__item"><a href="../vehiculos/vehiculos.html" class="sidebar__link"><i class='bx bxs-truck sidebar__icon'></i> Vehículos</a></li>
+                    <li class="sidebar__item"><a href="../rutas/rutas.html" class="sidebar__link"><i class='bx bx-map sidebar__icon'></i> Rutas</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="main-content__header">
+                <h2 class="main-content__title">Gestión de Estudiantes</h2>
+                <div class="main-content__breadcrumb">
+                    <span><i class='bx bx-home'></i> Inicio</span>
+                    <span>/</span>
+                    <span class="active">Estudiantes</span>
+                </div>
+            </div>
+
+            <div class="content-actions">
+                <button class="btn btn-primary" id="btnAbrirModalAgregar">
+                    <i class='bx bx-plus'></i> Agregar Estudiante
+                </button>
+            </div>
+
+            <div class="data-table-container">
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Edad</th>
+                                <th>Grado</th>
+                                <th class="text-center">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaEstudiantesBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Agregar/Editar -->
+    <div class="modal" id="modalEstudiante">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitulo">Agregar Estudiante</h5>
+                    <button type="button" class="btn-close" id="btnCancelar">
+                        <i class='bx bx-x'></i>
+                    </button>
+                </div>
+                <form id="formEstudiante">
+                    <div class="modal-body">
+                        <input type="hidden" id="estudianteId" />
+                        <div class="form-group">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" id="nombre" class="form-control" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="apellido" class="form-label">Apellido</label>
+                            <input type="text" id="apellido" class="form-control" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="edad" class="form-label">Edad</label>
+                            <input type="number" id="edad" class="form-control" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="grado" class="form-label">Grado</label>
+                            <input type="text" id="grado" class="form-control" required />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="btnCancelarModal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" id="btnGuardar">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+
+    <!-- Modal Confirmación Eliminar -->
+    <div class="modal" id="modalEliminar">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmar Eliminación</h5>
+                    <button type="button" class="btn-close" id="btnCancelarEliminar">
+                        <i class='bx bx-x'></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Estás seguro de eliminar este estudiante? Esta acción no se puede deshacer.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="btnCancelarEliminar">Cancelar</button>
+                    <button type="button" class="btn btn-danger" id="btnConfirmarEliminar">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="estudiantes.js"></script>
+    <script src="../dashboard/dashboard.js"></script>
+</body>
+</html>
