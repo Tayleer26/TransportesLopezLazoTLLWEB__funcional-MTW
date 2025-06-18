@@ -37,3 +37,57 @@ const listarTutores = async () => {
     console.error('Error al listar tutores:', err);
   }
 };
+
+// Abrir modal agregar
+btnAbrirModal.addEventListener('click', () => {
+  document.getElementById('modalTitulo').textContent = 'Agregar Tutor';
+  formTutor.reset();
+  document.getElementById('tutorId').value = '';
+  modal.style.display = 'flex';
+});
+
+// Cerrar modales
+btnCerrarModal.forEach(btn => btn.addEventListener('click', () => modal.style.display = 'none'));
+btnCerrarEliminar.forEach(btn => btn.addEventListener('click', () => modalEliminar.style.display = 'none'));
+
+// Editar tutor
+function editarTutor(id, nombre, telefono, direccion) {
+  document.getElementById('modalTitulo').textContent = 'Editar Tutor';
+  document.getElementById('tutorId').value = id;
+  document.getElementById('nombre').value = nombre;
+  document.getElementById('telefono').value = telefono;
+  document.getElementById('direccion').value = direccion;
+  modal.style.display = 'flex';
+}
+
+// Guardar tutor
+formTutor.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const id = document.getElementById('tutorId').value;
+  const nombre = document.getElementById('nombre').value;
+  const telefono = document.getElementById('telefono').value;
+  const direccion = document.getElementById('direccion').value;
+  const tutor = { nombre, telefono, direccion };
+
+  try {
+    let respuesta;
+    if (id) {
+      respuesta = await fetch(`${urlAPI}/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(tutor)
+      });
+    } else {
+      respuesta = await fetch(urlAPI, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(tutor)
+      });
+    }
+    if (!respuesta.ok) throw new Error('Error al guardar tutor');
+    modal.style.display = 'none';
+    listarTutores();
+  } catch (err) {
+    console.error(err);
+  }
+});
