@@ -91,3 +91,29 @@ formTutor.addEventListener('submit', async (e) => {
     console.error(err);
   }
 });
+
+// Eliminar tutor
+function abrirModalEliminar(id) {
+  idEliminar = id;
+  modalEliminar.style.display = 'flex';
+}
+
+btnConfirmarEliminar.addEventListener('click', async () => {
+  try {
+    const respuesta = await fetch(`${urlAPI}/${idEliminar}`, { method: 'DELETE' });
+    if (!respuesta.ok) throw new Error('Error al eliminar tutor');
+    modalEliminar.style.display = 'none';
+    listarTutores();
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+// Cerrar modal al hacer click fuera del contenido
+window.addEventListener('click', (e) => {
+  if (e.target === modal) modal.style.display = 'none';
+  if (e.target === modalEliminar) modalEliminar.style.display = 'none';
+});
+
+// Cargar tutores al iniciar
+listarTutores();
