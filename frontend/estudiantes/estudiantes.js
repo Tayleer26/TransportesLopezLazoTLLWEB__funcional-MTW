@@ -1,8 +1,3 @@
-/**
- * Módulo de gestión de estudiantes - Versión corregida
- * CRUD completo con almacenamiento en localStorage
- * Compatible con tu estructura HTML actual
- */
 
 document.addEventListener('DOMContentLoaded', function() {
     // Variables globales
