@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard - Transportes López Lazo</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="dashboard.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <button id="menuToggle" class="header__menu-toggle" aria-label="Abrir menú">
+        <i class='bx bx-menu'></i>
+      </button>
+      <div class="header__logo-containe">
+        <h1 class="header__logo">Transportes López Lazo</h1>
+        <span class="header__subtitle">Transporte Escolar Seguro</span>
+      </div>
+      <nav class="header__nav">
+        <ul class="header__nav-list">
+          <li class="header__nav-item"><a href="#" class="header__nav-link"><i class='bx bx-home'></i> Inicio</a></li>
+          <li class="header__nav-item"><a href="#" class="header__nav-link"><i class='bx bx-user'></i> Perfil</a></li>
+          <li class="header__nav-item"><a href="#" class="header__nav-link"><i class='bx bx-log-out'></i> Cerrar sesión</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar__profile">
+        <img src="../img/empresario.png" alt="Foto de perfil" class="sidebar__profile-img">
+        <div class="sidebar__profile-info">
+          <h3 class="sidebar__profile-name">Tayleer</h3>
+          <span class="sidebar__profile-role">Administrador</span>
+        </div>
+      </div>
+      
+      <nav class="sidebar__nav">
+        <ul class="sidebar__list">
+          <li class="sidebar__item"><a href="../dashboard/index.html" class="sidebar__link sidebar__link--active"><i class='bx bx-grid-alt sidebar__icon'></i> Dashboard</a></li>
+          <li class="sidebar__item"><a href="../estudiantes/estudiantes.html" class="sidebar__link"><i class='bx bx-user sidebar__icon'></i> Estudiantes</a></li>
+          <li class="sidebar__item"><a href="../tutores/tutores.html" class="sidebar__link"><i class='bx bx-user-voice sidebar__icon'></i> Tutores</a></li>
+          <li class="sidebar__item"><a href="../pagos/pagos.html" class="sidebar__link"><i class='bx bx-wallet sidebar__icon'></i> Pagos</a></li>
+          <li class="sidebar__item"><a href="../trabajadores/trabajadores.html" class="sidebar__link"><i class='bx bx-briefcase sidebar__icon'></i> Trabajadores</a></li>
+          <li class="sidebar__item"><a href="../vehiculos/vehiculos.html" class="sidebar__link"><i class='bx bxs-truck sidebar__icon'></i> Vehículos</a></li>
+          <li class="sidebar__item"><a href="../rutas/rutas.html" class="sidebar__link"><i class='bx bx-map sidebar__icon'></i> Rutas</a></li>
+        </ul>
+      </nav>
+      
+      <div class="sidebar__footer">
+        <p>Transportes López Lazo</p>
+        <p>© 2025 Todos los derechos reservados</p>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="main-content__header">
+        <h2 class="main-content__title">Bienvenido al panel de control</h2>
+        <div class="main-content__breadcrumb">
+          <span><i class='bx bx-home'></i> Inicio</span>
+          <span>/</span>
+          <span class="active">Dashboard</span>
+        </div>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="stats-cards">
+        <div class="stats-card">
+          <div class="stats-card__icon" style="background-color: #e3f2fd;">
+            <i class='bx bx-user' style="color: #1976d2;"></i>
+          </div>
+          <div class="stats-card__info">
+            <h3>Estudiantes</h3>
+            <span class="stats-card__number">120</span>
+            <span class="stats-card__change positive">+5% este mes</span>
+          </div>
+        </div>
+        
+        <div class="stats-card">
+          <div class="stats-card__icon" style="background-color: #e8f5e9;">
+            <i class='bx bx-truck' style="color: #388e3c;"></i>
+          </div>
+          <div class="stats-card__info">
+            <h3>Vehículos</h3>
+            <span class="stats-card__number">4</span>
+            <span class="stats-card__change">Disponibles</span>
+          </div>
+        </div>
+        
+        <div class="stats-card">
+          <div class="stats-card__icon" style="background-color: #fff3e0;">
+            <i class='bx bx-map' style="color: #ffa000;"></i>
+          </div>
+          <div class="stats-card__info">
+            <h3>Rutas</h3>
+            <span class="stats-card__number">5</span>
+            <span class="stats-card__change positive">+1 nueva</span>
+          </div>
+        </div>
+        
+        <div class="stats-card">
+          <div class="stats-card__icon" style="background-color: #fce4ec;">
+            <i class='bx bx-wallet' style="color: #c2185b;"></i>
+          </div>
+          <div class="stats-card__info">
+            <h3>Pagos</h3>
+            <span class="stats-card__number">C$85,000</span>
+            <span class="stats-card__change positive">+12% este mes</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Section -->
+      <section class="stats">
+        <div class="stats__header">
+          <h3 class="stats__title">Estadísticas de Pagos</h3>
+          <div class="stats__actions">
+            <button class="stats__action-btn"><i class='bx bx-refresh'></i></button>
+            <button class="stats__action-btn"><i class='bx bx-dots-vertical-rounded'></i></button>
+          </div>
+        </div>
+        <canvas id="pagosChart" aria-label="Gráfico de pastel de pagos" role="img" class="stats__chart"></canvas>
+      </section>
+
+      <section class="charts">
+        <div class="charts__item">
+          <div class="charts__header">
+            <h3 class="charts__title">Pagos Mensuales</h3>
+            <select class="charts__select">
+              <option>Últimos 6 meses</option>
+              <option>Este año</option>
+              <option>2025</option>
+            </select>
+          </div>
+          <canvas id="pagosMensualesChart" width="400" height="200" class="charts__canvas"></canvas>
+        </div>
+        
+        <div class="charts__item">
+          <div class="charts__header">
+            <h3 class="charts__title">Estudiantes por Ruta</h3>
+            <select class="charts__select">
+              <option>Todas las rutas</option>
+              <option>Rutas activas</option>
+            </select>
+          </div>
+          <canvas id="estudiantesRutaChart" width="400" height="200" class="charts__canvas"></canvas>
+        </div>
+      </section>
+      
+      <!-- Footer -->
+      <footer class="main-footer">
+        <div class="main-footer__info">
+          <div class="main-footer__about">
+            <h3>Transportes López Lazo</h3>
+            <p>15 años de experiencia en transporte escolar seguro y confiable en Managua-Altamira.</p>
+          </div>
+          
+          <div class="main-footer__contact">
+            <h3>Contacto</h3>
+            <p><i class='bx bx-map'></i> Colegio Jesús Divino Obrero, Managua</p>
+            <p><i class='bx bx-phone'></i> +505 7510 7723</p>
+            <p><i class='bx bx-envelope'></i> info@transporteslopezlazo.com</p>
+          </div>
+          
+          <div class="main-footer__social">
+            <h3>Síguenos</h3>
+            <div class="social-icons">
+              <a href="#"><i class='bx bxl-facebook'></i></a>
+              <a href="#"><i class='bx bxl-instagram'></i></a>
+              <a href="#"><i class='bx bxl-whatsapp'></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="main-footer__copyright">
+          <p>© 2025 Transportes López Lazo. Todos los derechos reservados.</p>
+          <p>Desarrollado con <i class='bx bx-heart'></i> para el Colegio Jesús Divino Obrero</p>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
