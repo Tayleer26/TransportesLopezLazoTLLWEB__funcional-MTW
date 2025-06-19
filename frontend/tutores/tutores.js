@@ -72,12 +72,14 @@ formTutor.addEventListener('submit', async (e) => {
   try {
     let respuesta;
     if (id) {
+      if (!confirm('¿Está seguro de realizar esta acción?')) return;
       respuesta = await fetch(`${urlAPI}/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(tutor)
       });
     } else {
+      if (!confirm('¿Está seguro de realizar esta acción?')) return;
       respuesta = await fetch(urlAPI, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -100,6 +102,7 @@ function abrirModalEliminar(id) {
 
 btnConfirmarEliminar.addEventListener('click', async () => {
   try {
+    if (!confirm('¿Está seguro de realizar esta acción?')) return;
     const respuesta = await fetch(`${urlAPI}/${idEliminar}`, { method: 'DELETE' });
     if (!respuesta.ok) throw new Error('Error al eliminar tutor');
     modalEliminar.style.display = 'none';

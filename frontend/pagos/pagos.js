@@ -34,7 +34,10 @@ document.addEventListener('DOMContentLoaded', function() {
         btnAbrirModalAgregar.addEventListener('click', abrirModalAgregar);
         btnCancelarModal.addEventListener('click', () => cerrarModal(modalPago));
         btnCancelarEliminar.addEventListener('click', () => cerrarModal(modalEliminar));
-        btnConfirmarEliminar.addEventListener('click', eliminarPago);
+    btnConfirmarEliminar.addEventListener('click', () => {
+        if (!confirm('¿Está seguro de realizar esta acción?')) return;
+        eliminarPago();
+    });
         formPago.addEventListener('submit', guardarPago);
         
         // Delegación de eventos para botones de acción
@@ -151,6 +154,8 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         if (!validarPago(pago)) return;
+
+        if (!confirm('¿Está seguro de realizar esta acción?')) return;
 
         if (editando) {
             // Actualizar pago existente

@@ -32,15 +32,23 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.target.classList.contains('btn-edit') || e.target.parentElement.classList.contains('btn-edit')) {
             const btn = e.target.classList.contains('btn-edit') ? e.target : e.target.parentElement;
             const id = btn.getAttribute('data-id') || btn.closest('tr').getAttribute('data-id');
-            if (id) editarEstudiante(id);
+            if (id) {
+                if (confirm('¿Está seguro de realizar esta acción?')) {
+                    editarEstudiante(id);
+                }
+            }
         }
         
-        // Manejar clic en botón eliminar
-        if (e.target.classList.contains('btn-delete') || e.target.parentElement.classList.contains('btn-delete')) {
-            const btn = e.target.classList.contains('btn-delete') ? e.target : e.target.parentElement;
-            const id = btn.getAttribute('data-id') || btn.closest('tr').getAttribute('data-id');
-            if (id) confirmarEliminacion(id);
+    // Manejar clic en botón eliminar
+    if (e.target.classList.contains('btn-delete') || e.target.parentElement.classList.contains('btn-delete')) {
+        const btn = e.target.classList.contains('btn-delete') ? e.target : e.target.parentElement;
+        const id = btn.getAttribute('data-id') || btn.closest('tr').getAttribute('data-id');
+        if (id) {
+            if (confirm('¿Está seguro de realizar esta acción?')) {
+                confirmarEliminacion(id);
+            }
         }
+    }
     });
 
     // Funciones

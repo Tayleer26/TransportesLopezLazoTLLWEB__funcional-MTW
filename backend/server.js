@@ -17,11 +17,19 @@ app.use(cors());
 app.use(express.json());
 
 // ✅ Rutas
+// Agregado console.log para debug
 const authRoutes = require('./routes/auth');
-const dashboardRoutes = require('./routes/dashboard');
+const dashboardRoutes = require('./routes/dashboard').default || require('./routes/dashboard');
 const estudiantesRoutes = require('./routes/estudiantes');
 const tutoresRoutes = require('./routes/tutores');
 const vehiculosRoutes = require('./routes/vehiculos');
+
+console.log('Tipo de authRoutes:', typeof authRoutes);
+console.log('Tipo de dashboardRoutes:', typeof dashboardRoutes);
+console.log('dashboardRoutes:', dashboardRoutes);
+console.log('Tipo de estudiantesRoutes:', typeof estudiantesRoutes);
+console.log('Tipo de tutoresRoutes:', typeof tutoresRoutes);
+console.log('Tipo de vehiculosRoutes:', typeof vehiculosRoutes);
 
 
 // 📌 Enrutadores

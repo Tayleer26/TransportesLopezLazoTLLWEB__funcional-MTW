@@ -31,19 +31,24 @@ document.addEventListener('DOMContentLoaded', function() {
         btnAbrirModalAgregar.addEventListener('click', abrirModalAgregar);
         btnCancelarModal.addEventListener('click', () => cerrarModal(modalTrabajador));
         btnCancelarEliminar.addEventListener('click', () => cerrarModal(modalEliminar));
-        btnConfirmarEliminar.addEventListener('click', eliminarTrabajador);
+        btnConfirmarEliminar.addEventListener('click', () => {
+            if (!confirm('¿Está seguro de realizar esta acción?')) return;
+            eliminarTrabajador();
+        });
         formTrabajador.addEventListener('submit', guardarTrabajador);
         
         // Delegación de eventos para botones de acción
         document.addEventListener('click', function(e) {
             if (e.target.classList.contains('btn-edit') || e.target.parentElement.classList.contains('btn-edit')) {
                 const btn = e.target.classList.contains('btn-edit') ? e.target : e.target.parentElement;
-                editarTrabajador(btn.dataset.id);
+                const id = btn.dataset.id;
+                editarTrabajador(id);
             }
             
             if (e.target.classList.contains('btn-delete') || e.target.parentElement.classList.contains('btn-delete')) {
                 const btn = e.target.classList.contains('btn-delete') ? e.target : e.target.parentElement;
-                confirmarEliminacion(btn.dataset.id);
+                const id = btn.dataset.id;
+                confirmarEliminacion(id);
             }
         });
     }
@@ -121,6 +126,8 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         if (!validarTrabajador(trabajador)) return;
+
+        if (!confirm('¿Está seguro de realizar esta acción?')) return;
 
         if (editando) {
             // Actualizar trabajador existente

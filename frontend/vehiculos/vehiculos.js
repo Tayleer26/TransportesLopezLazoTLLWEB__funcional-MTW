@@ -57,6 +57,7 @@ form.addEventListener('submit', async (e) => {
 
     try {
         if (editando && vehiculoId) {
+            if (!confirm('¿Está seguro de realizar esta acción?')) return;
             const res = await fetch(`${API_URL}/${vehiculoId}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
@@ -65,6 +66,7 @@ form.addEventListener('submit', async (e) => {
             if (!res.ok) throw new Error('Error en la respuesta del servidor');
             alert('Vehículo actualizado correctamente');
         } else {
+            if (!confirm('¿Está seguro de realizar esta acción?')) return;
             const res = await fetch(API_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -157,6 +159,7 @@ async function cargarVehiculo(id) {
 
 btnConfirmarEliminar.addEventListener('click', async () => {
     try {
+        if (!confirm('¿Está seguro de realizarar esta acción?')) return;
         const res = await fetch(`${API_URL}/${vehiculoId}`, { method: 'DELETE' });
         if (!res.ok) throw new Error('Error al eliminar');
         alert('Vehículo eliminado correctamente');

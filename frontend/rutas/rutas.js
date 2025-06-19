@@ -35,7 +35,10 @@ document.addEventListener('DOMContentLoaded', function() {
         btnAbrirModalAgregar.addEventListener('click', abrirModalAgregar);
         btnCancelarModal.addEventListener('click', () => cerrarModal(modalRuta));
         btnCancelarEliminar.addEventListener('click', () => cerrarModal(modalEliminar));
-        btnConfirmarEliminar.addEventListener('click', eliminarRuta);
+    btnConfirmarEliminar.addEventListener('click', () => {
+        if (!confirm('¿Está seguro de realizar esta acción?')) return;
+        eliminarRuta();
+    });
         formRuta.addEventListener('submit', guardarRuta);
         
         // Delegación de eventos para botones de acción
@@ -146,6 +149,8 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         if (!validarRuta(ruta)) return;
+
+        if (!confirm('¿Está seguro de realizar esta acción?')) return;
 
         if (editando) {
             // Actualizar ruta existente
