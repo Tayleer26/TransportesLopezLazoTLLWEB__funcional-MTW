@@ -64,4 +64,40 @@ async function renderCharts() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', renderCharts);
+document.addEventListener('DOMContentLoaded', () => {
+    renderCharts();
+
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+    const mainContent = document.querySelector('.main-content');
+
+    function isMobile() {
+        return window.innerWidth < 992;
+    }
+
+    menuToggle.addEventListener('click', () => {
+        if (isMobile()) {
+            sidebar.classList.toggle('show');
+        } else {
+            sidebar.classList.toggle('collapsed');
+            if (sidebar.classList.contains('collapsed')) {
+                mainContent.style.marginLeft = '0';
+            } else {
+                mainContent.style.marginLeft = '260px';
+            }
+        }
+    });
+
+    // Opcional: ajustar estado al cambiar tamaño de ventana
+    window.addEventListener('resize', () => {
+        if (!isMobile()) {
+            sidebar.classList.remove('show');
+            if (!sidebar.classList.contains('collapsed')) {
+                mainContent.style.marginLeft = '260px';
+            }
+        } else {
+            sidebar.classList.remove('collapsed');
+            mainContent.style.marginLeft = '0';
+        }
+    });
+});

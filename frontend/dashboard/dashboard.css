@@ -60,7 +60,8 @@ body {
   border: none;
   color: var(--white);
   cursor: pointer;
-  display: none;
+  /* Mostrar siempre el botón */
+  display: inline-block;
   transition: var(--transition);
   margin-right: 20px;
 }
@@ -265,6 +266,45 @@ body {
   min-height: calc(100vh - 70px);
   transition: margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   animation: fadeIn 0.8s ease forwards;
+}
+
+/* Sidebar colapsado */
+.sidebar.collapsed {
+  width: 0;
+  overflow: hidden;
+  box-shadow: none;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease;
+  opacity: 0;
+}
+
+/* Ajuste main content cuando sidebar está colapsado */
+.sidebar.collapsed + .main-content {
+  margin-left: 0;
+  transition: margin-left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Sidebar para pantallas pequeñas */
+@media (max-width: 992px) {
+  .sidebar {
+    transform: translateX(-100%);
+    width: 280px;
+    height: 100vh;
+    top: 0;
+    z-index: 1500;
+    box-shadow: 5px 0 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .sidebar.show {
+    transform: translateX(0);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 100px 25px 25px;
+    transition: margin-left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 }
 
 .main-content__header {
@@ -503,7 +543,7 @@ body {
 .charts__select:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+  box-shadow: 0 0 0 3px rgba(0, 86, 179, 1);
 }
 
 .charts__canvas {
@@ -651,7 +691,7 @@ body {
     height: 100vh;
     top: 0;
     z-index: 1500;
-    box-shadow: 5px 0 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 5px 0 20px rgba(0, 0, 0, 1);
   }
 
   .sidebar.show {
